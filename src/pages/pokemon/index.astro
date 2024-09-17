@@ -33,31 +33,31 @@ nextUrl.searchParams.set('page', nextPage.toString());
 ---
 
 <Layout title={title}>
-	<h1>{title}</h1>
+<h1>{title}</h1>
 
-	<section class="box">
-		<ul class="list flex">
-			{
-				pokemonList.results.map((pokemon: { name: string }) => {
-					return (
-						<li>
-							<PokemonPreview pokemon={pokemon.name} server:defer>
-								<div slot="fallback">
-									<div class="poke-placeholder-img" />
-									<span class="poke-placeholder-text" />
-								</div>
-							</PokemonPreview>
-						</li>
-					);
-				})
-			}
-		</ul>
-	</section>
+<section class="box">
+	<ul class="list flex">
+		{
+			pokemonList.results.map((pokemon: { name: string }) => {
+				return (
+					<li>
+						<PokemonPreview pokemon={pokemon.name} server:defer>
+							<div slot="fallback">
+								<div class="poke-placeholder-img" />
+								<span class="poke-placeholder-text" />
+							</div>
+						</PokemonPreview>
+					</li>
+				);
+			})
+		}
+	</ul>
+</section>
 
-	<section>
-		<nav class="subnav flex">
-			{prevPage !== false ? <a href={prevUrl}>&larr; previous page</a> : null}
-            {nextPage !== false ? <a href={nextUrl}>next page &rarr;</a> : null}
-		</nav>
-	</section>
+<section>
+	<nav class="subnav flex">
+		{prevPage !== false ? <a href={prevUrl}>&larr; previous page</a> : null}
+		{nextPage !== false ? <a href={nextUrl}>next page &rarr;</a> : null}
+	</nav>
+</section>
 </Layout>

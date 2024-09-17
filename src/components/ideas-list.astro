@@ -10,23 +10,23 @@ const { title, ideas } = Astro.props;
 ---
 
 <div class="box">
-	<h2>{title}</h2>
-	<ul class="list">
-		{
-			ideas.map((idea) => (
-				<li class="with-controls">
-					<div>{idea.text}</div>
-					<form method="POST" action={actions.ideas.delete}>
-						<input type="hidden" name="id" value={idea.id} />
-						<button type="submit" class="icon">
-							<span role="img" aria-label="trash can">
-								🗑️
-							</span>
-							<span class="sr-only">delete</span>
-						</button>
-					</form>
-				</li>
-			))
-		}
-	</ul>
+    <h2>{title}</h2>
+    <ul class="list">
+    {
+        ideas.map((idea) => (
+            <li class="with-controls">
+                <div>{idea.text}</div>
+                <form method="POST" action={actions.ideas.delete}>
+                    <input type="hidden" name="id" value={idea.id} />
+                    <button type="submit" class="icon">
+                        <span role="img" aria-label="trash can">
+                            🗑️
+                        </span>
+                        <span class="sr-only">delete</span>
+                    </button>
+                </form>
+            </li>
+        ))
+    }
+    </ul>
 </div>
